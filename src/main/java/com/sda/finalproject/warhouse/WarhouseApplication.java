@@ -1,4 +1,4 @@
-package com.example.warhouse;
+package com.sda.finalproject.warhouse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

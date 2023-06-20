@@ -1,4 +1,4 @@
-package com.example.warhouse;
+package com.sda.finalproject.warhouse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

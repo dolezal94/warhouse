@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  error:
+    path: /error
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://db.kxtmtmbtnjjcytdpofum.supabase.co:5432/postgres
+    username: postgres
+    password: JzZ3BJzkwrcdECv
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  devtools:
+    livereload:
+      enabled: true
