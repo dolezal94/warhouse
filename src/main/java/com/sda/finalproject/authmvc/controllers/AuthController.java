@@ -2,9 +2,13 @@ package com.sda.finalproject.authmvc.controllers;
 
 import com.sda.finalproject.authmvc.dto.LoginDto;
 import com.sda.finalproject.authmvc.dto.RegisterDto;
+import com.sda.finalproject.authmvc.entities.UserEntity;
+import com.sda.finalproject.authmvc.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,6 +16,9 @@ import java.util.Optional;
 
 @Controller
 public class AuthController {
+
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/login")
     public String getLoginPage(Model model, @RequestParam("error") Optional<String> error) {
@@ -36,10 +43,23 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String registerUser() {
+    public String registerUser(@ModelAttribute("user") RegisterDto registerDto, Model model) {
 
-       // to bude za domaci ukol - dokoncit vytvareni uzivatel
+        String firstName = registerDto.getFirstName();
+        String lastName = registerDto.getLastName();
+        String email = registerDto.getEmail();
+        String password = registerDto.getPassword();
 
+        UserEntity user = new UserEntity(firstName, lastName, email, password);
+
+        // Uložení uživatele do databáze pomocí odpovídajícího repository
+
+        userRepository.save(user);
+
+        // Nastavení zprávy o úspěšné registraci
+        model.addAttribute("message", "Registration successful. Please login.");
+
+        // Přesměrování na stránku s přihlášením
         return "redirect:/login";
     }
 }
