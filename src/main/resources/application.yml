@@ -21,3 +21,6 @@ spring:
   devtools:
     livereload:
       enabled: true
+
+      spring.mvc.view.redirect.suffix: .html
+      spring.mvc.view.redirect.url-template: /dashboard
