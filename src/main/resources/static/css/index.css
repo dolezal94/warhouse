@@ -1,0 +1,86 @@
+form {
+    max-width: 450px;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* Hlavní barvy */
+body {
+    background-color: white;
+    color: #333333;
+}
+
+/* Obsah */
+.content {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Formulář */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+p.text-danger {
+    color: red;
+    margin-top: 5px;
+}
+
+button.btn.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F46036;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a.btn.btn-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: orange;
+    text-decoration: none;
+}
