@@ -7,13 +7,11 @@ import com.sda.finalproject.authmvc.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -35,25 +33,6 @@ public class AuthController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String loginUser(@ModelAttribute("login") @Valid LoginDto loginDto, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            // Handle validation errors
-            return "login";
-        }
-
-        String email = loginDto.getEmail();
-        String password = loginDto.getPassword();
-
-        UserEntity user = userRepository.findByEmailAndPassword(email, password);
-
-        if (user != null) {
-            return "dashboard";
-        } else {
-            model.addAttribute("message", "Invalid email or password");
-            return "login";
-        }
-    }
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {

@@ -18,10 +18,10 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/register", "/css/**", "/js/**")
                         .permitAll()
-//               ).formLogin(form -> form
-//                       .loginPage("/login")
+//              ).formLogin(form -> form
+//                      .loginPage("/login")
 //                        .defaultSuccessUrl("/dashboard")
-//                        .failureUrl("/login?error=true")
+//                       .failureUrl("/login?error=true")
 //                       .permitAll()
                 );
 
